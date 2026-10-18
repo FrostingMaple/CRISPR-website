@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#343777">
+  <meta name="description" content="生化研讨课交互演示：从HBB致病变异、HbS聚合与珠蛋白链失衡，到BCL11A增强子编辑、γ珠蛋白再激活和HbF保护机制。">
+  <title>从致病变异到 HbF 再激活｜基因编辑的分子机制</title>
+  <link rel="stylesheet" href="./seminar.css">
+</head>
+<body>
+  <header class="masthead" id="top">
+    <a class="course-name" href="#top">基因编辑技术的应用<span>生化研讨课 · 交互式机制讲解</span></a>
+    <div class="header-right"><span class="academic-mark" aria-hidden="true">α<span>γ</span></span><span>分子机制专题<small>CASGEVY / EXA-CEL</small></span></div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="pageTitle">
+      <div><p class="eyebrow">从疾病发生，到调控干预</p><h1 id="pageTitle">从致病变异到 <span>HbF 再激活</span></h1><p class="intro-copy">一条贯穿 <b>DNA → 转录调控 → 珠蛋白组装 → 红细胞表型</b> 的机制链。</p></div>
+      <div class="intro-question"><span>本次研讨的核心问题</span><p>不直接修复 <i>HBB</i>，<br>为什么也能改善 β-血红蛋白病？</p></div>
+    </section>
+    <nav class="chapter-nav" id="chapterNav" aria-label="机制章节"></nav>
+    <section class="workspace" id="explorer" aria-label="交互机制讲解">
+      <div class="lesson-top"><div><span class="section-index" id="chapterIndex">01</span><div><p class="eyebrow" id="chapterTag"></p><h2 id="chapterTitle"></h2></div></div><div class="view-controls"><button id="presentMode" aria-pressed="false">⛶ 课堂视图</button><button id="play" aria-pressed="false">▷ 连续演示</button></div></div>
+      <div class="step-tabs" id="stepTabs" role="group" aria-label="本章机制步骤"></div>
+      <div class="lesson-layout">
+        <div class="diagram-panel">
+          <div class="diagram-heading"><span id="diagramScale"></span><span class="schematic-tag">概念示意 · 非定量模拟</span></div>
+          <div class="diagram" id="diagram" role="img"></div>
+          <div class="interactive-controls" id="interactiveControls"></div>
+          <div class="diagram-caption" id="diagramCaption"></div>
+          <div class="legend" aria-label="图例"><span><i class="alpha"></i>α-链</span><span><i class="beta"></i>β / βˢ-链</span><span><i class="gamma"></i>γ-链 / HbF</span><span><i class="regulator"></i>调控蛋白 / DNA</span></div>
+        </div>
+        <article class="mechanism-panel" aria-live="polite" aria-atomic="true">
+          <div class="step-count" id="stepCount"></div><h3 id="stepTitle"></h3>
+          <div id="explanation"></div>
+          <div class="causal-box"><span>本步因果关系</span><div id="causalChain"></div></div>
+          <details class="molecular-detail" id="detailBox"><summary>展开分子细节与易混点</summary><div id="molecularDetail"></div></details>
+          <a class="source-inline" id="stepSource" target="_blank" rel="noopener noreferrer"></a>
+        </article>
+      </div>
+      <div class="lesson-bottom"><button class="secondary" id="previous">← 上一步</button><span id="progressText"></span><div><button class="text-button" id="replay">↻ 重播本步</button><button class="primary" id="next">下一步 →</button></div></div>
+      <div class="lesson-progress" aria-hidden="true"><div id="progressFill"></div></div>
+    </section>
+    <section class="takeaway" aria-labelledby="takeawayTitle"><div><p class="eyebrow">贯穿全课的机制主线</p><h2 id="takeawayTitle">编辑调控元件，改变蛋白质组成。</h2></div><div class="summary-chain"><span>BCL11A 红系增强子受扰</span><b>→</b><span>红系 BCL11A ↓</span><b>→</b><span>HBG1 / HBG2 去抑制</span><b>→</b><span>γ-链 ↑，HbF ↑</span><b>→</b><span>聚合减少 / 链失衡缓解</span></div><p><strong>HBB 致病变异仍然存在。</strong>干预改变的是红系细胞的基因表达程序；作用持久性依赖编辑造血干细胞的植入与持续造血。</p></section>
+    <section class="sources" id="references"><div><p class="eyebrow">机制与证据</p><h2>原始研究与阅读材料</h2><p>图示用于讲解结构、方向和因果，不代表真实分子比例、反应速率、细胞数量或患者疗效。临床证据注明研究与时间范围。</p></div><ol id="referenceList"></ol></section>
+  </main>
+  <footer><span>生化研讨课 · β-血红蛋白病与 CRISPR 调控干预</span><span>键盘 ← → 切换步骤 · Esc 退出课堂视图</span><a href="#top">返回顶部 ↑</a></footer>
+  <script src="./seminar.js"></script>
+</body>
+</html>

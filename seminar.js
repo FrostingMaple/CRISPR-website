@@ -475,7 +475,7 @@ function render(){
   controls(data.scene);renderDiagram();
 }
 function pause(){if(state.timer){clearInterval(state.timer);state.timer=null}$('play').setAttribute('aria-pressed','false');$('play').textContent='▷ 连续演示'}
-function start(){state.timer=setInterval(()=>go(1,false),8500);$('play').setAttribute('aria-pressed','true');$('play').textContent='Ⅱ 暂停演示'}
+function start(){state.timer=setInterval(()=>go(1,false),4000);$('play').setAttribute('aria-pressed','true');$('play').textContent='Ⅱ 暂停演示'}
 function go(direction,manual=true){
   if(manual)pause();
   if(direction>0){

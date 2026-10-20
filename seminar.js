@@ -475,6 +475,7 @@ function render(){
   controls(data.scene);renderDiagram();
 }
 function pause(){if(state.timer){clearInterval(state.timer);state.timer=null}$('play').setAttribute('aria-pressed','false');$('play').textContent='▷ 连续演示'}
+function start(){state.timer=setInterval(()=>go(1,false),8500);$('play').setAttribute('aria-pressed','true');$('play').textContent='Ⅱ 暂停演示'}
 function go(direction,manual=true){
   if(manual)pause();
   if(direction>0){
@@ -501,7 +502,7 @@ $('previous').addEventListener('click',()=>go(-1));$('next').addEventListener('c
 $('replay').addEventListener('click',()=>{pause();renderDiagram()});
 $('play').addEventListener('click',()=>{
   if(state.timer){pause();return}
-  state.timer=setInterval(()=>go(1,false),8500);$('play').setAttribute('aria-pressed','true');$('play').textContent='Ⅱ 暂停演示';
+  start();
 });
 function setClassroom(on){document.body.classList.toggle('classroom',on);$('presentMode').setAttribute('aria-pressed',String(on));$('presentMode').textContent=on?'⛶ 退出课堂':'⛶ 课堂视图';window.scrollTo({top:0,behavior:'smooth'})}
 $('presentMode').addEventListener('click',()=>setClassroom(!document.body.classList.contains('classroom')));
@@ -510,6 +511,10 @@ document.addEventListener('keydown',e=>{
   if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.target.closest('input,select,textarea,summary,button,a'))return;
   if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}
 });
-document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
+let wasPlaying=false;
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){wasPlaying=state.timer!==null;pause();}
+  else if(wasPlaying){wasPlaying=false;start();}
+});
 $('referenceList').innerHTML=references.map(r=>'<li><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+r.title+' ↗</a><small>'+r.note+'</small></li>').join('');
 render();
